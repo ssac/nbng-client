@@ -58,3 +58,7 @@ you should be able to open `http://mycoolserver.com/index.html` and play your ga
 ## Template
 
 [URL](https://github.com/photonstorm/phaser3-project-template)
+
+
+## Refs
+https://www.freecodecamp.org/news/how-to-build-a-simple-game-in-the-browser-with-phaser-3-and-typescript-bdc94719135/

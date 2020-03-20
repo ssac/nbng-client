@@ -12,7 +12,16 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: "babel-loader",
+          options: {
+            "presets": [
+              {
+                "plugins": [
+                  "@babel/plugin-proposal-class-properties"
+                ]
+              }
+            ]
+          }
         }
       },
       {
@@ -34,7 +43,7 @@ module.exports = {
       WEBGL_RENDERER: JSON.stringify(true)
     }),
     new HtmlWebpackPlugin({
-      template: "./index.html"
+      template: "./src/index.html"
     })
   ]
 };
