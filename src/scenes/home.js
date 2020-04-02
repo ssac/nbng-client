@@ -1,8 +1,6 @@
 import Phaser from "phaser";
 
-import logoImg from "../assets/logo.png";
 import BgImg from '../assets/main_bg.jpg';
-
 import TestData from './test-data';
 
 import {
@@ -10,30 +8,31 @@ import {
 	HEIGHT
 } from '../configs/game';
 
-const Scene = new Phaser.Class({
-	Extends: Phaser.Scene,
+export default class extends Phaser.Scene {
+	constructor() {
+		super('home');
+	}
+	// Extends: Phaser.Scene,
 
-	initialize:
+	// initialize: function Home() {
+	// 	Phaser.Scene.call(this, 'home');
+	// },
 
-	function Home() {
-		Phaser.Scene.call(this, 'home');
-	},
-
-	preload: function() {
-		this.load.image("logo", logoImg);
+	preload () {
 		this.load.image("bg", BgImg);
-
-		// this.load.image('cat1', 'src/assets/buildercat_0.png');
-		// this.load.image('cat2', 'src/assets/buildercat_1.png');
-		// this.load.image('cat3', 'src/assets/buildercat_2.png');
-
+		
 		this.load.image('cat1', require('../assets/buildercat_0.png'));
 		this.load.image('cat2', require('../assets/buildercat_1.png'));
 		this.load.image('cat3', require('../assets/buildercat_2.png'));
-	},
+	}
 
-	create: function() {
-		const bg = this.add.image(WIDTH/2, HEIGHT/2, "bg").setScale(2);
+	create () {
+		const bg = this.add.image(
+			this.game.config.width/2, 
+			this.game.config.height/2, 
+			"bg"
+		);
+		bg.scale = this.game.config.width / bg.width;
 
 		this.anims.create({
 			key: 'building',
@@ -49,8 +48,8 @@ const Scene = new Phaser.Class({
 		const logoLen = 90;
 
 		this.add.sprite(
-			WIDTH/2, 
-			HEIGHT/2 - logoLen - 20, 
+			this.game.config.width/2, 
+			this.game.config.height/2 - logoLen - 20, 
 			'cat1'
 		).play('building');
 
@@ -62,15 +61,15 @@ const Scene = new Phaser.Class({
 		);
 
 		const search = this.add.text(
-			WIDTH/2,
-			HEIGHT - 30,
+			this.game.config.width/2,
+			this.game.config.height - 30,
 			'搜索「信喵避風港」',
 			{ fontSize: '16px', fill: '#000' }
 		).setOrigin(0.5);;
 
 		const start = this.add.text(
-			WIDTH/2, 
-			HEIGHT/2, 
+			this.game.config.width/2, 
+			this.game.config.height/2, 
 			'CLICK TO START', 
 			{ 
 				fontSize: '28px', 
@@ -91,6 +90,4 @@ const Scene = new Phaser.Class({
 			this.scene.start('battle', TestData);
 		}, this);
 	}
-});
-
-export default Scene;
+}
