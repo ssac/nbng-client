@@ -1,6 +1,9 @@
-# Phaser 3 Webpack Project Template
+# NBNG Client
 
-A project with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/)
+Codebase for client side displaying battle logic for repo `nbng-universe`.
+See more on https://github.com/ssac/nbng-universe
+
+The project with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/)
 that includes hot-reloading for development and production-ready builds.
 
 Loading images via JavaScript module `import` is also supported.
@@ -57,6 +60,6 @@ If you put the contents of the `dist` folder in a publicly-accessible location (
 you should be able to open `http://mycoolserver.com/index.html` and play your game.
 
 ### Deploying to firebase server
-The project hosts on firebase hosting, if you were project owner, run below code to deploy to firebase server.
+The project hosts on firebase hosting, if you've granted the deployment permission, run below code to deploy to firebase server.
 `firebase deploy --only hosting`
 
